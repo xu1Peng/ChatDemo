@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <HyphenateLite/HyphenateLite.h>
 
 @interface AppDelegate ()
 
@@ -18,8 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    EMOptions *options = [EMOptions optionsWithAppkey:@"easemob-demo#chatdemoui"];
-    [[EMClient sharedClient] initializeSDKWithOptions:options];
+//    EMOptions *options = [EMOptions optionsWithAppkey:@"easemob-demo#chatdemoui"];
+//    [[EMClient sharedClient] initializeSDKWithOptions:options];
     return YES;
 }
 
@@ -31,12 +30,12 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[EMClient sharedClient] applicationDidEnterBackground:application];
+//    [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[EMClient sharedClient] applicationWillEnterForeground:application];
+//    [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
 
