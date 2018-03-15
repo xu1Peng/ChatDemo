@@ -1,0 +1,22 @@
+//
+//  PrefixHeader.pch
+//  ChatDemo
+//
+//  Created by Jerry on 2018/3/15.
+//  Copyright © 2018年 xuPeng. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import <Hyphenate/Hyphenate.h>
+#import "EaseUI.h"
+
+//屏幕宽高
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height
+
+#define DEMO_CALLL 1
+#endif
+

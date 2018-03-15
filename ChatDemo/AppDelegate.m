@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FriendsViewController.h"
+#import <Hyphenate/Hyphenate.h>
 
 @interface AppDelegate ()
 
@@ -17,11 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    EMOptions *options = [EMOptions optionsWithAppkey:@"easemob-demo#chatdemoui"];
-//    [[EMClient sharedClient] initializeSDKWithOptions:options];
+    EMOptions *options = [EMOptions optionsWithAppkey:@"easemob-demo#chatdemoui"];
+    [[EMClient sharedClient] initializeSDKWithOptions:options];
+    
+    FriendsViewController *friendVC = [[FriendsViewController alloc] init];
+    UINavigationController *friendNVC = [[UINavigationController alloc] initWithRootViewController:friendVC];
+    self.window.rootViewController = friendNVC;
+    
+    [self loginEM];
     return YES;
 }
 
+- (void)loginEM{
+    [[EMClient sharedClient] loginWithUsername:@"8002"
+                                      password:@"111111"
+                                    completion:^(NSString *aUsername, EMError *aError) {
+                                        if (!aError) {
+                                            NSLog(@"登录成功");
+                                        } else {
+                                            NSLog(@"登录失败");
+                                        }
+                                    }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -30,12 +49,12 @@
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [[EMClient sharedClient] applicationDidEnterBackground:application];
+    [[EMClient sharedClient] applicationDidEnterBackground:application];
 }
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-//    [[EMClient sharedClient] applicationWillEnterForeground:application];
+    [[EMClient sharedClient] applicationWillEnterForeground:application];
 }
 
 
